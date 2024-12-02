@@ -7,7 +7,6 @@ import java.util.Scanner;
  */
 public class Ex1Main {
     public static void main(String[] args) {
-        System.out.println(Ex1.int2Number(34,16));
 
 //        Scanner sc = new Scanner(System.in);
 //        String num1 = "", num2="", quit = "quit";

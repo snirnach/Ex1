@@ -54,9 +54,14 @@ return ans;
             return ans;
             String base1 = String.valueOf(base) ;
             String repre = "";
+            if (num == 0)
+                return 0 + "b" + base1;
             while (num !=0 ){
-                repre = (num % base) + repre;
-                num = num/base;
+              if (num % base > 9)
+                repre = fixnum(num % base) + repre;
+              else
+                  repre = (num % base) + repre;
+              num = num/base;
             }
             if (base>9)
                base1 = fixnum(base);

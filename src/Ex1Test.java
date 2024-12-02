@@ -40,8 +40,22 @@ public class Ex1Test {
             assertEquals("",Ex1.int2Number(-1,5));
         }
     @Test
-    void int2NumberTest1() {
+    void int2NumberTest1() { //check all base with different num
         assertEquals("22bG",Ex1.int2Number(34,16));
+        assertEquals("EFbG",Ex1.int2Number(239,16));
+        assertEquals("15bF",Ex1.int2Number(20,15));
+        assertEquals("1DbE",Ex1.int2Number(27,14));
+        assertEquals("5bD",Ex1.int2Number(5,13));
+        assertEquals("71bC",Ex1.int2Number(85,12));
+        assertEquals("30bB",Ex1.int2Number(33,11));
+        assertEquals("1000bA",Ex1.int2Number(1000,10));
+        assertEquals("121b9",Ex1.int2Number(100,9));
+        assertEquals("6626b8",Ex1.int2Number(3478,8));
+        assertEquals("10b7",Ex1.int2Number(7,7));
+        assertEquals("0b6",Ex1.int2Number(0,6));
+        assertEquals("40b5",Ex1.int2Number(20,5));
+        assertEquals("11b4",Ex1.int2Number(5,4));
+        assertEquals("22b3",Ex1.int2Number(8,3));
         assertEquals("10110b2",Ex1.int2Number(22,2));
         }
         @Test
