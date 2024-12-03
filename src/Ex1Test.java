@@ -42,6 +42,8 @@ public class Ex1Test {
     @Test
     void int2NumberTest1() { //check all base with different num
         assertEquals("22bG",Ex1.int2Number(34,16));
+        assertEquals("0bG",Ex1.int2Number(0,16));
+        assertEquals("1bG",Ex1.int2Number(1,16));
         assertEquals("EFbG",Ex1.int2Number(239,16));
         assertEquals("15bF",Ex1.int2Number(20,15));
         assertEquals("1DbE",Ex1.int2Number(27,14));

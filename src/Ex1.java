@@ -50,22 +50,17 @@ return ans;
          */
         public static String int2Number(int num, int base) {
             String ans = "";
-            if (num < 0 || 16 < base || base< 2 )
-            return ans;
-            String base1 = String.valueOf(base) ;
-            String repre = "";
-            if (num == 0)
+            String base1 = fixnum(base);
+            if (num < 0 || 16 < base || base< 2 ){
+            return ans;}
+            if (num == 0){
                 return 0 + "b" + base1;
+            }
             while (num !=0 ){
-              if (num % base > 9)
-                repre = fixnum(num % base) + repre;
-              else
-                  repre = (num % base) + repre;
+                ans = fixnum(num % base) + ans;
               num = num/base;
             }
-            if (base>9)
-               base1 = fixnum(base);
-            return repre + "b" + base1;
+            return ans + "b" + base1;
         }
 
         /**
@@ -113,7 +108,7 @@ return ans;
                 return "F";
             if (a==16)
                 return "G";
-            return "no need fix";
+            return String.valueOf(a);
 
         }
 }
