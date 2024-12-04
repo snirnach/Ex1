@@ -1,8 +1,13 @@
+//student name: Snir Nachmany
+//ID: 322593047
+
+
+
 import static java.lang.Character.getNumericValue;
 
 /**
  * This class represents a simple solution for Ex1.
- * As defined here: https://docs.google.com/document/d/1AJ9wtnL1qdEs4DAKqBlO1bXCM6r6GJ_J/r/edit/edit
+ * As defined here: <a href="https://docs.google.com/document/d/1AJ9wtnL1qdEs4DAKqBlO1bXCM6r6GJ_J/r/edit/edit">...</a>
  * In this assignment, we will design a number formatting converter and calculator.
  * In general, we will use Strings as numbers over basis of binary till Hexa.
  * [2-16], 10-16 are represented by A,B,..G.
@@ -30,7 +35,7 @@ public class Ex1 {
                 ans = (int) (ans + (Math.pow(getNumericValue(endOfNum(num)),beginOfNum(num).length()-1-i))*getNumericValue(beginOfNum(num).charAt(i)));
             }
         }
-        if (num.length() == beginOfNum(num).length() && num.matches("\\d+")) // change char of number to int.
+        if (num.matches("\\d+")) // change char of number to int.
             ans = Integer.parseInt(num);
 
         return ans;
@@ -52,16 +57,8 @@ public class Ex1 {
                 if (!goodChar(b.charAt(i)) || b.charAt(i)>=e)
                     ans = false;
             }
-            if (a.length() == b.length()) {
-                int sum = 0;
-
-                for (int i = 0; i < b.length(); i++) {
-                    if (getNumericValue(a.charAt(i)) <10 && getNumericValue(a.charAt(i)) > -1)
-                        sum++;
-                       if (sum == a.length())
-                        ans = true;
-                }
-            }
+                if (a.matches("\\d+"))
+                    ans = true;
 
             return ans;
         }
@@ -96,10 +93,7 @@ public class Ex1 {
          * @return true iff the two numbers have the same values.
          */
         public static boolean equals(String n1, String n2) {
-            boolean ans = true;
-            if (number2Int(n1) != number2Int(n2))
-                ans = false;
-            return ans;
+            return (number2Int(n1) == number2Int(n2));
         }
 
         /**
