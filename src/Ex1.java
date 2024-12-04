@@ -25,11 +25,15 @@ public class Ex1 {
 
         if (isNumber(num)){
             ans=0;
-            for (int i=0; i<beginOfNum(num).length(); i++){
+            for (int i=0; i<beginOfNum(num).length(); i++){/*Iterates through the first part of the string, and at each index, raises the last part of the
+            string to the power of the length of the string minus the index minus 1, then multiplies the result by the number at the current index.*/
                 ans = (int) (ans + (Math.pow(getNumericValue(endOfNum(num)),beginOfNum(num).length()-1-i))*getNumericValue(beginOfNum(num).charAt(i)));
             }
         }
-         return ans;
+        if (num.length() == beginOfNum(num).length() && num.matches("\\d+")) // change char of number to int.
+            ans = Integer.parseInt(num);
+
+        return ans;
      }
 
         /**
@@ -48,9 +52,16 @@ public class Ex1 {
                 if (!goodChar(b.charAt(i)) || b.charAt(i)>=e)
                     ans = false;
             }
+            if (a.length() == b.length()) {
+                int sum = 0;
 
-                if (a.equals("1"))
-                      ans = true;
+                for (int i = 0; i < b.length(); i++) {
+                    if (getNumericValue(a.charAt(i)) <10 && getNumericValue(a.charAt(i)) > -1)
+                        sum++;
+                       if (sum == a.length())
+                        ans = true;
+                }
+            }
 
             return ans;
         }
@@ -102,7 +113,7 @@ public class Ex1 {
         public static int maxIndex(String[] arr) {
             int ans = 0;
             for (int i=0; i< arr.length; i++){
-               if (number2Int(arr[i]) > number2Int(arr[ans]))
+               if (number2Int(arr[i]) > number2Int(arr[ans])) // check if current number bigger and if he bigger save the current index.
                     ans = i;
                 }
 
@@ -128,20 +139,22 @@ public class Ex1 {
 
         }
 
-        public static boolean goodChar(char a){
+        public static boolean goodChar(char a){ //check if char is in the format or no
             boolean ans = false;
             String l = "ABCDEFG";
             if (getNumericValue(a) >= 0 )
                 ans = true;
             for (int i=0; i<l.length(); i++){
-                if (l.charAt(i) == a )
+                if (l.charAt(i) == a) {
                     ans = true;
+                    break;
+                }
             }
 
             return ans;
         }
 
-        public static String beginOfNum(String a){
+        public static String beginOfNum(String a){ //get string number and return the part before 'b'
          String ans = "";
          int i=0;
          while (i<a.length() && a.charAt(i) != 'b') {
@@ -151,7 +164,7 @@ public class Ex1 {
          return ans;
         }
 
-        public static char endOfNum(String a){
+        public static char endOfNum(String a){ //get string number and return the part of the base
             return a.charAt(a.length() - 1);
         }
 

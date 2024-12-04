@@ -59,6 +59,10 @@ public class Ex1Test {
         assertEquals("11b4",Ex1.int2Number(5,4));
         assertEquals("22b3",Ex1.int2Number(8,3));
         assertEquals("10110b2",Ex1.int2Number(22,2));
+        String s = Ex1.int2Number(22,8);
+        assertEquals( s,"26b8");
+        String t = Ex1.int2Number(16,16);
+        assertEquals( t, "10bG");
         }
         @Test
         void maxIndexTest() {
@@ -75,6 +79,18 @@ public class Ex1Test {
         assertFalse(Ex1.equals("954bC","954bB"));
         assertTrue(Ex1.equals("1011b2","11bA"));
 
+    }
+
+    @Test
+    void goodChar() {
+    }
+
+    @Test
+    void beginOfNum() {
+    }
+
+    @Test
+    void endOfNum() {
     }
 
     // Add additional test functions - test as much as you can.
