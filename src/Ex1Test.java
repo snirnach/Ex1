@@ -62,8 +62,20 @@ public class Ex1Test {
         }
         @Test
         void maxIndexTest() {
+            String[] numbers = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA"};
+           assertEquals(4,Ex1.maxIndex(numbers));
+           String[] numbers1 = {"100bA","76b9", "12b6","BbF","101100b2","144b8"};
+           assertEquals(0,Ex1.maxIndex(numbers1));
 
         }
 
-        // Add additional test functions - test as much as you can.
+    @Test
+    void testEquals() {
+        assertTrue(Ex1.equals("954bC","954bC"));
+        assertFalse(Ex1.equals("954bC","954bB"));
+        assertTrue(Ex1.equals("1011b2","11bA"));
+
+    }
+
+    // Add additional test functions - test as much as you can.
     }

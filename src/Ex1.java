@@ -1,3 +1,5 @@
+import static java.lang.Character.getNumericValue;
+
 /**
  * This class represents a simple solution for Ex1.
  * As defined here: https://docs.google.com/document/d/1AJ9wtnL1qdEs4DAKqBlO1bXCM6r6GJ_J/r/edit/edit
@@ -11,22 +13,25 @@
  * You should implement the following static functions:
  */
 public class Ex1 {
-        /**
-         * Convert the given number (num) to a decimal representation (as int).
-         * It the given number is not in a valid format returns -1.
-         * @param num a String representing a number in basis [2,16]
-         * @return
-         */
-        public static int number2Int(String num) {
-            int ans = -1;
+    /**
+     * Convert the given number (num) to a decimal representation (as int).
+     * It the given number is not in a valid format returns -1.
+     *
+     * @param num a String representing a number in basis [2,16]
+     * @return
+     */
+    public static int number2Int(String num) {
+        int ans = -1;
 
-            if (isNumber(num)){
-
+        if (isNumber(num)){
+            ans=0;
+            for (int i=0; i<beginOfNum(num).length(); i++){
+                ans = (int) (ans + (Math.pow(getNumericValue(endOfNum(num)),beginOfNum(num).length()-1-i))*getNumericValue(beginOfNum(num).charAt(i)));
             }
-            else
-             return ans;
-return ans;
         }
+         return ans;
+     }
+
         /**
          * This static function checks if the given String (g) is in a valid "number" format.
          * @param a a String representing a number
@@ -34,9 +39,19 @@ return ans;
          */
         public static boolean isNumber(String a) {
             boolean ans = true;
-            // add your code here
+            String b = beginOfNum(a);
+            char e = endOfNum(a);
+            if (a.isEmpty() || b.isEmpty() || !a.equals(b+"b"+e) || !goodChar(e))
+                ans = false;
 
-            ////////////////////
+            for (int i =0; i<b.length() && ans;i++){
+                if (!goodChar(b.charAt(i)) || b.charAt(i)>=e)
+                    ans = false;
+            }
+
+                if (a.equals("1"))
+                      ans = true;
+
             return ans;
         }
 
@@ -71,9 +86,8 @@ return ans;
          */
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
-            // add your code here
-
-            ////////////////////
+            if (number2Int(n1) != number2Int(n2))
+                ans = false;
             return ans;
         }
 
@@ -87,9 +101,11 @@ return ans;
          */
         public static int maxIndex(String[] arr) {
             int ans = 0;
-            // add your code here
+            for (int i=0; i< arr.length; i++){
+               if (number2Int(arr[i]) > number2Int(arr[ans]))
+                    ans = i;
+                }
 
-            ////////////////////
             return ans;
         }
 
@@ -111,4 +127,33 @@ return ans;
             return String.valueOf(a);
 
         }
+
+        public static boolean goodChar(char a){
+            boolean ans = false;
+            String l = "ABCDEFG";
+            if (getNumericValue(a) >= 0 )
+                ans = true;
+            for (int i=0; i<l.length(); i++){
+                if (l.charAt(i) == a )
+                    ans = true;
+            }
+
+            return ans;
+        }
+
+        public static String beginOfNum(String a){
+         String ans = "";
+         int i=0;
+         while (i<a.length() && a.charAt(i) != 'b') {
+             ans = ans + a.charAt(i);
+                     i++;
+         }
+         return ans;
+        }
+
+        public static char endOfNum(String a){
+            return a.charAt(a.length() - 1);
+        }
+
+
 }
