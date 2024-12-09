@@ -25,6 +25,10 @@ public class Ex1 {
      * @param num a String representing a number in basis [2,16]
      * @return
      */
+//    The number2Int function converts the string num into an integer and return the value. If isNumber(num) is true,
+//    it calculates the value by iterating through the numeric part (beginOfNum(num)), raising the base (endOfNum(num)) to
+//    the appropriate power, multiplying by the numeric value of each character, and summing the results.
+//    If num contains only digits, it directly converts it to an integer using Integer.parseInt.
     public static int number2Int(String num) {
         int ans = -1;
 
@@ -46,6 +50,11 @@ public class Ex1 {
          * @param a a String representing a number
          * @return true iff the given String is in a number format
          */
+//        The isNumber function checks whether string 'a' represents a valid number in the format.
+//            It splits 'a' into two parts: 'b', the main numeric sequence (using beginOfNum), and 'e', the last character (using endOfNum).
+//            The function verifies that 'a' is not empty, that its format matches 'b' + "b" + 'e', and that 'e' is valid according to the goodChar helper function.
+//            It also checks that all characters in b are valid and smaller than 'e'. Additionally, if a consists only of digits
+//           , it is considered valid. The function returns true if all checks pass, and false otherwise.
         public static boolean isNumber(String a) {
             boolean ans = true;
             String b = beginOfNum(a);
@@ -71,7 +80,13 @@ public class Ex1 {
          * @param base the basis [2,16]
          * @return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
          */
-        public static String int2Number(int num, int base) {
+        public static String int2Number(int num, int base) { //The function takes two numbers: one as a number in base 10 and the other
+//            as the base in which the number should be represented and return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
+//            I create an empty string and use a loop to perform a modulo operation
+//            of the base on the number. Each time, the remainder is added at the beginning of the string, and the number is divided by
+//            the base until the number equals 0. The function then returns the resulting string along with "b" and the base.
+//            It handles the case where the base is 10 by leaving the number as it is, as well as the case where the number is 0, which simply results in "0" in the given base.
+//            An auxiliary function is used to convert the numbers from integers to strings.
             String ans = "";
             String base1 = fixnum(base);
             if (num < 0 || 16 < base || base< 2 ){// check if the num or base not in format and return "".
@@ -94,6 +109,8 @@ public class Ex1 {
          * @param n2 second number
          * @return true iff the two numbers have the same values.
          */
+//    The `equals` function compares two strings, `n1` and `n2`, by converting them to integers using `number2Int` and checking
+//    if the values are equal. It returns `true` if they match, otherwise `false`.
         public static boolean equals(String n1, String n2)
         {
             return (number2Int(n1) == number2Int(n2));
@@ -107,6 +124,8 @@ public class Ex1 {
          * @return the index in the array in with the largest number (in value).
          *
          */
+//    The `maxIndex` function finds the index of the largest number in an array of strings by comparing each element
+//    (converted to an integer using `number2Int`). It updates the index if a larger value is found and returns the index of the largest number.
         public static int maxIndex(String[] arr) {
             int ans = 0;
             for (int i=0; i< arr.length; i++){
@@ -135,13 +154,14 @@ public class Ex1 {
             return String.valueOf(a);
 
         }
-
-        public static boolean goodChar(char a){ //check if char is in the format or no
+    //The `goodChar` function checks if a character is a valid digit (0-9)
+    // or one of the characters in "ABCDEFG". It returns `true` if either condition is met, otherwise `false`.
+        public static boolean goodChar(char a){
             boolean ans = false;
             String l = "ABCDEFG";
             if (getNumericValue(a) >= 0 && getNumericValue(a) < 10 )
                 ans = true;
-            for (int i=0; i<l.length(); i++){
+            for (int i=0; i<l.length(); i++){//It iterates through all the characters in the string and checks if the character matches any of them.
                 if (l.charAt(i) == a) {
                     ans = true;
                     break;
@@ -154,7 +174,7 @@ public class Ex1 {
         public static String beginOfNum(String a){ //get string number and return the part before 'b'
          String ans = "";
          int i=0;
-         while (i<a.length() && a.charAt(i) != 'b') {
+         while (i<a.length() && a.charAt(i) != 'b') {//It iterates through the string up to the character 'b' and copies that part into a string I created.
              ans = ans + a.charAt(i);
                      i++;
          }
