@@ -3,8 +3,8 @@
 
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * This JUnit class represents a very partial test class for Ex1.
@@ -54,7 +54,7 @@ public class Ex1Test {
         assertEquals("5bD",Ex1.int2Number(5,13));
         assertEquals("71bC",Ex1.int2Number(85,12));
         assertEquals("30bB",Ex1.int2Number(33,11));
-        assertEquals("1000bA",Ex1.int2Number(1000,10));
+        assertEquals("1000",Ex1.int2Number(1000,10));
         assertEquals("121b9",Ex1.int2Number(100,9));
         assertEquals("6626b8",Ex1.int2Number(3478,8));
         assertEquals("10b7",Ex1.int2Number(7,7));
@@ -67,6 +67,9 @@ public class Ex1Test {
         assertEquals( s,"26b8");
         String t = Ex1.int2Number(16,16);
         assertEquals( t, "10bG");
+        assertNotEquals("2134b9", Ex1.int2Number(354, 6));
+        assertNotEquals("10b16", Ex1.int2Number(10, 16));
+        assertNotEquals("3bA", Ex1.int2Number(3, 10));
         }
         @Test
         void maxIndexTest() {
@@ -74,28 +77,74 @@ public class Ex1Test {
            assertEquals(4,Ex1.maxIndex(numbers));
            String[] numbers1 = {"100bA","76b9", "12b6","BbF","101100b2","144b8"};
            assertEquals(0,Ex1.maxIndex(numbers1));
+            String[] number = {"100"}; // array with one element
+            assertEquals(0, Ex1.maxIndex(number));
+            String[] numbers3 = {"10","20b5","1010b2","AbC","11b9"}; // array all numbers equals
+            assertEquals(0,Ex1.maxIndex(numbers3));
 
+            assertNotEquals(2,Ex1.maxIndex(numbers));
+            assertNotEquals(2,Ex1.maxIndex(number));
         }
 
     @Test
     void testEquals() {
         assertTrue(Ex1.equals("954bC","954bC"));
-        assertFalse(Ex1.equals("954bC","954bB"));
+        assertFalse(Ex1.equals("954bC","954bB")); // same num different base
+        assertFalse(Ex1.equals("0","954bB"));// 0 with another num
         assertTrue(Ex1.equals("1011b2","11bA"));
+        assertTrue(Ex1.equals("007bB","7b8"));
 
     }
 
     @Test
     void goodChar() {
+        assertTrue(Ex1.goodChar('0'));
+        assertTrue(Ex1.goodChar('5'));
+        assertTrue(Ex1.goodChar('9'));
+        assertTrue(Ex1.goodChar('C'));
+        assertTrue(Ex1.goodChar('G'));
+        assertFalse(Ex1.goodChar('H'));
+        assertFalse(Ex1.goodChar('a'));
+        assertFalse(Ex1.goodChar('$'));
+        assertFalse(Ex1.goodChar('['));
+        assertFalse(Ex1.goodChar(' '));
+
     }
 
     @Test
     void beginOfNum() {
+        assertEquals("123", Ex1.beginOfNum("123b456"));
+        assertEquals("", Ex1.beginOfNum("b456"));
+        assertEquals("456", Ex1.beginOfNum("456b"));
+        assertEquals("", Ex1.beginOfNum("b"));
+        assertEquals("123", Ex1.beginOfNum("123bb6b"));
+        assertEquals("123", Ex1.beginOfNum("123"));
+
     }
 
     @Test
     void endOfNum() {
+        assertEquals('5', Ex1.endOfNum("12345"));
+        assertEquals('C', Ex1.endOfNum("12cdC"));
+        assertEquals('g', Ex1.endOfNum("123g"));
+        assertEquals(' ', Ex1.endOfNum(""));
     }
+
+    @Test
+    void fixnum() {
+        assertEquals("A", Ex1.fixnum(10));
+        assertEquals("B", Ex1.fixnum(11));
+        assertEquals("C", Ex1.fixnum(12));
+        assertEquals("D", Ex1.fixnum(13));
+        assertEquals("E", Ex1.fixnum(14));
+        assertEquals("F", Ex1.fixnum(15));
+        assertEquals("G", Ex1.fixnum(16));
+        assertEquals("9", Ex1.fixnum(9)); // check random number
+        assertEquals("0", Ex1.fixnum(0));// check 0
+
+        assertNotEquals("11",Ex1.fixnum(11));
+        assertNotEquals("8",Ex1.fixnum(5));
+        }
 
     // Add additional test functions - test as much as you can.
     }

@@ -74,12 +74,14 @@ public class Ex1 {
         public static String int2Number(int num, int base) {
             String ans = "";
             String base1 = fixnum(base);
-            if (num < 0 || 16 < base || base< 2 ){
+            if (num < 0 || 16 < base || base< 2 ){// check if the num or base not in format and return "".
             return ans;}
-            if (num == 0){
+            if (base == 10) // if the base is 10 return num as String.
+                return String.valueOf(num);
+            if (num == 0){ // if num is 0 return 0b(base)
                 return 0 + "b" + base1;
             }
-            while (num !=0 ){
+            while (num !=0 ){ // change the num to num in base and return him.
                 ans = fixnum(num % base) + ans;
               num = num/base;
             }
@@ -92,7 +94,8 @@ public class Ex1 {
          * @param n2 second number
          * @return true iff the two numbers have the same values.
          */
-        public static boolean equals(String n1, String n2) {
+        public static boolean equals(String n1, String n2)
+        {
             return (number2Int(n1) == number2Int(n2));
         }
 
@@ -136,7 +139,7 @@ public class Ex1 {
         public static boolean goodChar(char a){ //check if char is in the format or no
             boolean ans = false;
             String l = "ABCDEFG";
-            if (getNumericValue(a) >= 0 )
+            if (getNumericValue(a) >= 0 && getNumericValue(a) < 10 )
                 ans = true;
             for (int i=0; i<l.length(); i++){
                 if (l.charAt(i) == a) {
@@ -158,7 +161,9 @@ public class Ex1 {
          return ans;
         }
 
-        public static char endOfNum(String a){ //get string number and return the part of the base
+        public static char endOfNum(String a){ //get string number and return last char that representing the part of the base
+           if (a == "")
+               return ' ';
             return a.charAt(a.length() - 1);
         }
 

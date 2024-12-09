@@ -22,7 +22,7 @@ public class Ex1Main {
             System.out.println("Ex1 class solution:");
             System.out.println("Enter a string as number#1 (or \"quit\" to end the program): ");// ask to insert number
             num1 = sc.next();
-            if (!num1.equals("quit")) {//
+            if (!num1.equals("quit")) {
                 System.out.println("num1= " + num1 + " is number: " + Ex1.isNumber(num1) + " , value: " + (int) Ex1.number2Int(num1));
 
                 if (!Ex1.isNumber(num1)) { // if num1 not in the format print error message and back to lop.
@@ -52,7 +52,7 @@ public class Ex1Main {
                     String[] arr = {num1, num2, Ex1.int2Number(plus, base), Ex1.int2Number(multi, base)};
                     System.out.println(num1 + " + " + num2 + " = " + Ex1.int2Number(plus, base));
                     System.out.println(num1 + " * " + num2 + " = " + Ex1.int2Number(multi, base));
-                    System.out.println("Max number over [" + num1 + "," + num2 + "," + Ex1.int2Number(plus, base) + "," + Ex1.int2Number(multi, base) + "] is: " + arr[Ex1.maxIndex(arr)]);
+                    System.out.println("Max number over [" + arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "] is: " + arr[Ex1.maxIndex(arr)]);
 
                 }
             }
