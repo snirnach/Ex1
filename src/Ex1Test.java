@@ -98,16 +98,17 @@ public class Ex1Test {
 
     @Test
     void goodChar() {
-        assertTrue(Ex1.goodChar('0'));
-        assertTrue(Ex1.goodChar('5'));
-        assertTrue(Ex1.goodChar('9'));
-        assertTrue(Ex1.goodChar('C'));
-        assertTrue(Ex1.goodChar('G'));
-        assertFalse(Ex1.goodChar('H'));
-        assertFalse(Ex1.goodChar('a'));
-        assertFalse(Ex1.goodChar('$'));
-        assertFalse(Ex1.goodChar('['));
-        assertFalse(Ex1.goodChar(' '));
+        char[] goodChars = {'0', '5', '9', 'C', 'G'};
+       for (int i=0; i< goodChars.length;i++){
+           boolean ok = Ex1.goodChar(goodChars[i]);
+           assertTrue(ok);
+       }
+
+        char[] notGoodChars = {'H', 'a', '$', '[', ' '};
+       for (int i=0; i< notGoodChars.length;i++){
+           boolean not_good = Ex1.goodChar(notGoodChars[i]);
+           assertFalse(not_good);
+       }
 
     }
 
@@ -146,5 +147,4 @@ public class Ex1Test {
         assertNotEquals("8",Ex1.fixnum(5));
         }
 
-    // Add additional test functions - test as much as you can.
     }
