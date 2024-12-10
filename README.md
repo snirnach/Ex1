@@ -17,18 +17,6 @@ Enter a base for output: (a number [2,16]
 1 * 0 = 0
 Max number over [1,0,1,0] is: 1
 
-Ex1 class solution:
-Enter a string as number#1 (or "quit" to end the program): 
-1001b2
-num1= 1001b2 is number: true , value: 9
-Enter a string as number#2 (or "quit" to end the program): 
-11b3
-num2= 11b3 is number: true , value: 4
-Enter a base for output: (a number [2,16] 
-10
-1001b2 + 11b3 = 13
-1001b2 * 11b3 = 36
-Max number over [1001b2,11b3,13,36] is: 36
 
 Ex1 class solution:
 Enter a string as number#1 (or "quit" to end the program): 
@@ -49,31 +37,6 @@ Enter a string as number#1 (or "quit" to end the program):
 num1= 1b is number: false , value: -1
 ERR: num1 is in the wrong format! (1b)
 
-Ex1 class solution:
-Enter a string as number#1 (or "quit" to end the program): 
-1
-num1= 1 is number: true , value: 1
-Enter a string as number#2 (or "quit" to end the program): 
-0b2
-num2= 0b2 is number: true , value: 0
-Enter a base for output: (a number [2,16] 
-2
-1 + 0b2 = 1b2
-1 * 0b2 = 0b2
-Max number over [1,0b2,1b2,0b2] is: 1
-
-Ex1 class solution:
-Enter a string as number#1 (or "quit" to end the program): 
-12
-num1= 12 is number: true , value: 12
-Enter a string as number#2 (or "quit" to end the program): 
-10011b2
-num2= 10011b2 is number: true , value: 19
-Enter a base for output: (a number [2,16] 
-16
-12 + 10011b2 = 1FbG
-12 * 10011b2 = E4bG
-Max number over [12,10011b2,1FbG,E4bG] is: E4bG
 
 Ex1 class solution:
 Enter a string as number#1 (or "quit" to end the program): 
