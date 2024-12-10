@@ -45,7 +45,9 @@ quitting now...
 
 
 **Dependencies**
-the program usage in number of function from **Ex1.java**: 
+
+the program usage in number of function from **Ex1.java**:
+
 **number2Int** function converts the string num into an integer and return the value. If isNumber(num) is true,
 it calculates the value by iterating through the numeric part (beginOfNum(num)), raising the base (endOfNum(num)) to
 the appropriate power, multiplying by the numeric value of each character, and summing the results.
