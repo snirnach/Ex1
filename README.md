@@ -4,43 +4,73 @@ performs calculations (addition and multiplication), and outputs the results in 
 and the results.
 
 **Example (running Ex1Main.java):**
+
 Ex1 class solution:
-Enter a string as number#1 (or "quit" to end the program): 
+
+Enter a string as number#1 (or "quit" to end the program):
+
 1
+
 num1= 1 is number: true , value: 1
-Enter a string as number#2 (or "quit" to end the program): 
+
+Enter a string as number#2 (or "quit" to end the program):
+
 0
+
 num2= 0 is number: true , value: 0
+
 Enter a base for output: (a number [2,16] 
+
 10
+
 1 + 0 = 1
+
 1 * 0 = 0
+
 Max number over [1,0,1,0] is: 1
 
 
 Ex1 class solution:
-Enter a string as number#1 (or "quit" to end the program): 
+
+Enter a string as number#1 (or "quit" to end the program):
+
 1DbG
+
 num1= 1DbG is number: true , value: 29
+
 Enter a string as number#2 (or "quit" to end the program): 
+
 AAbB
+
 num2= AAbB is number: true , value: 120
+
 Enter a base for output: (a number [2,16] 
+
 2
+
 1DbG + AAbB = 10010101b2
+
 1DbG * AAbB = 110110011000b2
+
 Max number over [1DbG,AAbB,10010101b2,110110011000b2] is: 110110011000b2
 
 Ex1 class solution:
+
 Enter a string as number#1 (or "quit" to end the program): 
+
 1b
+
 num1= 1b is number: false , value: -1
+
 ERR: num1 is in the wrong format! (1b)
 
 
 Ex1 class solution:
+
 Enter a string as number#1 (or "quit" to end the program): 
+
 quit
+
 quitting now...
 
 
